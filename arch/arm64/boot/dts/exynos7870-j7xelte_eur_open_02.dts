@@ -642,4 +642,22 @@
 	fimc_is_module_3l2: fimc-is_sensor_3l2@2D {
 		gpio_camaf_2p8_en = <&gpa1 5 0x1>; /* CAM_AF_2P8 enable pin */
 	};
+
+	firmware {
+		android {
+			compatible = "android,firmware";
+			fstab {
+				compatible = "android,fstab";
+				system {
+					compatible = "android,system";
+					dev = "/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM";
+					type = "ext4";
+					mnt_flags = "ro,barrier=1";
+					fsmgr_flags = "wait";
+					status = "ok";
+				};
+
+			};
+		};
+	};
 };
